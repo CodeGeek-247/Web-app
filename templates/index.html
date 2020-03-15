@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>To Do App</title>
+</head>
+<body>
+    <h1>Todo list</h1>
+    <div>Add a new todo item: 
+        <form action = "{{ url_for('add') }}" method="POST">
+            <input type = "text" name = "todoitem">
+            <input type = "submit" value="Add Item">
+        </form>
+    </div>
+    <div>
+        <h2>Incomplete Items</h2>
+        <ul>
+            {% for todo in imran_todos %}
+            <li style = "font-size: 30pt">{{ todo.text }} <a href="{ { url_for('complete', id=todo.id )} }">Mark As Complete</a> </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
